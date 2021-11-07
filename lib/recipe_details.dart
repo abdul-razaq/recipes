@@ -14,6 +14,29 @@ class RecipeDetails extends StatefulWidget {
 class _RecipeDetailsState extends State<RecipeDetails> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.recipe.label),
+        centerTitle: true,
+      ),
+      body: SafeArea(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 300,
+              width: double.infinity,
+              child: Image(
+                image: AssetImage(widget.recipe.imageUrl),
+              ),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              widget.recipe.label,
+              style: const TextStyle(fontSize: 18),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

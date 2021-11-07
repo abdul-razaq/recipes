@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'recipe.dart';
 
+import './recipe_details.dart';
+
 void main() {
   runApp(RecipeApp());
 }
@@ -49,12 +51,12 @@ class _RecipeHomeState extends State<RecipeHome> {
     );
   }
 
-  void handleRecipeTap() {
+  void handleRecipeTap(Recipe recipe) {
     Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) {
-          return const Text('Recipe Detail page');
+          return RecipeDetails(recipe: recipe);
         },
       ),
     );
@@ -62,7 +64,7 @@ class _RecipeHomeState extends State<RecipeHome> {
 
   Widget buildRecipeCard(Recipe recipe) {
     return GestureDetector(
-      onTap: handleRecipeTap,
+      onTap: () => handleRecipeTap(recipe),
       child: Card(
         shape:
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
