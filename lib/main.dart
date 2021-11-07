@@ -7,17 +7,23 @@ void main() {
 class RecipeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = ThemeData();
+
     return MaterialApp(
-      title: 'Recipe App',
-      home: RecipeHome(title: "Recipe App"),
+      title: 'Recipe Calculator',
+      theme: theme.copyWith(
+        colorScheme: theme.colorScheme
+            .copyWith(primary: Colors.grey, secondary: Colors.black),
+      ),
+      home: const RecipeHome(title: "Recipe Calculator"),
     );
   }
 }
 
 class RecipeHome extends StatefulWidget {
-  String title required;
+  final String title;
 
-  RecipeHome({this.title});
+  const RecipeHome({required this.title});
 
   @override
   State<RecipeHome> createState() => _RecipeHomeState();
@@ -30,6 +36,13 @@ class _RecipeHomeState extends State<RecipeHome> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
+      body: SafeArea(
+        child: Container(),
+      ),
     );
+  }
+
+  Widget buildRecipeCard(BuildContext context) {
+    return Card();
   }
 }
