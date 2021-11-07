@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import './recipes.dart';
+import 'recipe.dart';
 
 void main() {
   runApp(RecipeApp());
@@ -54,7 +54,7 @@ class _RecipeHomeState extends State<RecipeHome> {
       context,
       MaterialPageRoute(
         builder: (context) {
-          return const Text('Recipe Detail');
+          return const Text('Recipe Detail page');
         },
       ),
     );
