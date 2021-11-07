@@ -49,28 +49,43 @@ class _RecipeHomeState extends State<RecipeHome> {
     );
   }
 
+  void handleRecipeTap() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) {
+          return const Text('Recipe Detail');
+        },
+      ),
+    );
+  }
+
   Widget buildRecipeCard(Recipe recipe) {
-    return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
-      elevation: 2.0,
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            Image(
-              image: AssetImage(recipe.imageUrl),
-            ),
-            const SizedBox(
-              height: 14.0,
-            ),
-            Text(
-              recipe.label,
-              style: const TextStyle(
-                  fontFamily: 'Palatino',
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.w700),
-            ),
-          ],
+    return GestureDetector(
+      onTap: handleRecipeTap,
+      child: Card(
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        elevation: 2.0,
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              Image(
+                image: AssetImage(recipe.imageUrl),
+              ),
+              const SizedBox(
+                height: 14.0,
+              ),
+              Text(
+                recipe.label,
+                style: const TextStyle(
+                    fontFamily: 'Palatino',
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.w700),
+              ),
+            ],
+          ),
         ),
       ),
     );
